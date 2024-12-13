@@ -5,7 +5,7 @@ const TodoModel = require('./Models/Todo');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-app.use(cors({ origin: 'https://lg007-git.github.io/todo1/' })); // Replace with your frontend domain
+app.use(cors({ origin: 'todo-list1-zn5v.vercel.app' })); // Replace with your frontend domain
 app.use(express.json());
 
 // MongoDB Connection

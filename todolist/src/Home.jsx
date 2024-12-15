@@ -5,7 +5,8 @@ import Create from './Create';
 
 function Home() {
   const [todos, setTodos] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001';
+  const API_BASE_URL =  'http://localhost:3001';
+  
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/get`)

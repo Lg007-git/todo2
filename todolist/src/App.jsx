@@ -1,15 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import Home from './Home'
-import './App.css'
+  import { useState } from 'react'
+  import './App.css'
+  import Home from './Home'
+  import './App.css'
 
-function App() {
+  console.log('app');
   
-  return (
-    <div>
-      <Home />
-    </div>
-  )
-}
 
-export default App
+  function App() {
+    return ( 
+      <div>
+        <Home />
+      </div>
+    )
+  }
+
+  export default App

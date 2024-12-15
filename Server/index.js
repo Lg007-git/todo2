@@ -5,11 +5,14 @@ const TodoModel = require('./Models/Todo');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-app.use(cors({ origin: 'todo-list1-zn5v.vercel.app' })); // Replace with your frontend domain
+app.use(cors()); // Replace with your frontend domain
 app.use(express.json());
 
 // MongoDB Connection
-const DB_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/test';
+const DB_URI = process.env.MONGO_URI ;
+mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Successfully connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log('Error connecting to MongoDB:', err));

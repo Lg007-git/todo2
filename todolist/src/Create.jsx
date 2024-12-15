@@ -3,7 +3,10 @@ import axios from 'axios';
 
 function Create() {
   const [task, setTask] = useState('');
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001';
+ 
+
+  const API_BASE_URL = 'http://localhost:3001';
+  
 
   const handleAdd = () => {
     if (!task.trim()) {
@@ -13,7 +16,7 @@ function Create() {
     axios.post(`${API_BASE_URL}/add`, { task: task })
       .then(result => {
         setTask(''); // Clear the input field after adding
-        alert("Task added successfully!");
+        // alert("Task added successfully!");
       })
       .catch(err => console.log(err));
   };

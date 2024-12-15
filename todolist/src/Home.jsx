@@ -5,7 +5,9 @@ import Create from './Create';
 
 function Home() {
   const [todos, setTodos] = useState([]);
-  const API_BASE_URL =  'http://localhost:3001';
+  //const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3001';
+  const production = true ;
+  const API_BASE_URL = (production=='true' ? import.meta.env.VITE_APP_API_URL:'http://localhost:3001');
   
 
   useEffect(() => {

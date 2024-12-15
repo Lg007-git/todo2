@@ -5,7 +5,12 @@ const TodoModel = require('./Models/Todo');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-app.use(cors()); // Replace with your frontend domain
+//app.use(cors({origin:'https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app/'})); // Replace with your frontend domain
+app.use(cors({
+  origin: ["https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app/","http://localhost:5173/"], // Allow both origins
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}));
 app.use(express.json());
 
 // MongoDB Connection

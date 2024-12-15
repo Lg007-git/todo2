@@ -5,23 +5,23 @@ const TodoModel = require('./Models/Todo');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
-//app.use(cors({origin:'https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app/'})); // Replace with your frontend domain
+
 app.use(cors({
-  origin: ["https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app/","http://localhost:5173/"], // Allow both origins
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200,
-  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
+  origin: [
+    "https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app",
+    "http://localhost:5173"
+  ],
+  credentials: true, // This is the correct property for allowing cookies/credentials
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Specify allowed methods
 }));
+
 app.use(express.json());
 
 // MongoDB Connection
-const DB_URI = process.env.MONGO_URI ;
-mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Successfully connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+const DB_URI = process.env.MONGO_URI;
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log('Error connecting to MongoDB:', err));
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // Routes
 app.get('/get', (req, res) => {

@@ -9,7 +9,8 @@ const app = express();
 app.use(cors({
   origin: ["https://todo2frontend-7etyjtyc8-lg007s-projects.vercel.app/","http://localhost:5173/"], // Allow both origins
   credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
+  optionSuccessStatus:200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
 }));
 app.use(express.json());
 
